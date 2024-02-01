@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>Editar Ventilador</h1>
+<ul class="volver">
+    <li><a href="/projects">🡐Volver</a></li>
+</ul>
+
+<div class="create_task">
+    <form method="post" enctype="multipart/form-data" action="{% url 'editar_ventilador' id=ventilador.id %}">
+        {% csrf_token %}
+        <p>
+            <label for="id_name">Nombre del ventilador:</label>
+            <input type="text" name="name" id="id_name" value="{{ ventilador.name }}">
+        </p>
+        <p>
+            <label for="id_description">Descripción:</label>
+            <textarea name="description" id="id_description" cols="40" rows="10">{{ ventilador.description }}</textarea>
+        </p>
+        <p>
+            <label for="id_imagenes">Imagen actual:</label>
+            <div class="imagen_actual">
+                <a href="{{ ventilador.imagenes.url }}">{{ ventilador.imagenes.name }}</a><br>
+            </div>
+            <input class="nueva" type="file" name="imagenes" id="id_imagenes">
+        </p>
+        <p>
+            <button type="submit" class="edit_update">Guardar Cambios</button>
+            <a class="cancelar_edit" href="/projects">Cancelar</a>
+        </p>
+    </form>
+</div>
+
+{% endblock %}

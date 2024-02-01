@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  overflow: auto;
+}
+.sidebar {
+  width: 250px;
+  display: block;
+  background: black;
+  height: 100%;
+  position: fixed;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 30px 10px;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 50px;
+  margin-top: 35px;
+}
+
+.sidebar a {
+  padding: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: #555;
+  padding: 10px;
+  border-radius: 5px;
+}
+main {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  height: 100%;
+}
+@media (max-width: 780px) {
+  .sidebar {
+    width: 160px;
+    position: relative;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar a {
+    margin-bottom: 8px;
+  }
+
+  main {
+    width: auto;
+    border: 3px solid violet;
+  }
+  .sidebar-toggle {
+    display: none;
+  }
+
+  .sidebar-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  h1, .buscador{
+    display: block;
+    width: 100% ;
+  }
+  .contenedor{
+    display: flex;
+  }
+}
+
+h1 {
+  /* margin-left: 250px; */
+  font-size: 40px;
+  text-align: center;
+  border: 2px solid green;
+  width: calc(100% - 250px);
+  float: right;
+
+}
+/* este es del buscador en general */
+.project_input {
+  border-radius: 5px;
+  margin-left: 270px;
+  padding: 10px;
+  width: 200px;
+  height: 30px;
+}
+h1,
+.buscador {
+  background: rgb(231, 70, 70);
+  padding: 10px;
+}
+
+button {
+  border-radius: 5px;
+  margin-left: 5px;
+  height: 30px;
+  width: 60px;
+}
+/* aqui termina */
+
+/* aqui empieza para dejar todo tipo card/galeria */
+.contenedor {
+  margin-top: 10px;
+  margin-left: 251px;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.elemento {
+  border-radius: 5px;
+  width: 300px;
+  height: 450px;
+  box-sizing: content-box;
+  border: 1px solid #ccc;
+  border-top: 2px solid red;
+  margin: 10px;
+}
+
+.codigo{
+  font-size: 25px;
+  padding: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-weight: 700;
+}
+/* bloque de project-name */
+.project-info p{
+  font-size: 25px;
+  padding: 10px;
+  font-weight: 700;
+  max-width: 150px;
+  margin: 0 auto;
+}
+.name_task{
+  overflow: hidden;
+  font-size: 25px;
+  padding: 10px;
+  
+  text-align: center;
+  font-weight: 700;
+  height: 70px;
+}
+.descripcion,
+.descripcion_project {
+  overflow: hidden;
+  padding: 0px;
+  text-align: left;
+  height: 95px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.descripcion_task {
+  overflow: hidden;
+  padding: 0px;
+  text-align: left;
+  height: 70px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.elemento img {
+  object-fit: scale-down;
+  width: 300px;
+  height: 250px;
+  border-radius: 5px;
+}
+/* aqui termina */
+
+/* botones para ver repuestos y despiece */
+.boton_vista {
+  color: whitesmoke;
+  text-decoration: none;
+  padding: 7px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: inline;
+  border-radius: 7px;
+  background-color: grey;
+}
+/* termina aqui */
+
+/* Esto es para hacerle zoom a las imagenes */
+.zoom {
+  cursor: pointer;
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom:hover {
+  transform: scale(1.2);
+}
+
+.zoom:active {
+  transform: scale(1);
+}
+/* termina aqui */
+
+/* esto es el formulario para cargar repuestos y vt y para editar */
+.create_project {
+  margin-left: 270px;
+  display: block;
+}
+.subir_archivo {
+  margin-top: 10px;
+  margin-left: 280px;
+}
+
+
+.create_task {
+  border: 2px solid red;
+  width: 700px;
+  height: 400px;
+  padding: 10px;
+  margin-left: 270px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: block;
+  justify-content: center;
+  text-align: left;
+  border-radius: 5px;
+}
+input {
+  margin: 10px 10px 10px 20px;
+  width: 250px;
+  height: 25px;
+  border-radius: 5px;
+}
+
+textarea {
+  margin-left: 90px;
+  height: 30px;
+}
+label {
+  display: inline-block;
+  font-weight: bold;
+  padding: 5px;
+  line-height: 50px;
+}
+.imagenes_input {
+  margin-left: 125px;
+}
+/* aqui termina */
+
+
+/* botones para editar y elimar repuestos */
+.edit{
+  margin: 0;
+  padding: 0;
+}
+.edit a{
+  text-decoration: none;
+  display: inline;
+  float: left;
+  margin: 6px 7px ;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: grey;
+  color: white;
+}
+.edit li{
+  list-style: none;
+}
+/* aqui termina */
+
+/* esto es formulario para editar repuestos */
+.edit_update{
+  margin-top: 10px;
+  margin-left: 200px;
+  height: 30px;
+  width: 120px;
+}
+.form {
+  border: 1px solid violet;
+  margin-left: 250px;
+}
+
+
+.volver{
+  margin-left: 265px;
+}
+.volver li{
+  list-style: none;
+}
+.volver a{
+  text-align: center;
+  width: 80px;
+  display: block;
+  text-decoration: none;
+  margin: 5px;
+  padding: 3px;
+  background-color: rgb(226, 77, 58);
+  color: white;
+  border-radius: 4px;
+  
+}
+
+.nueva{
+  margin-left: 200px;
+  
+}
+.imagen_actual a{
+  justify-content: right;
+  width: 40px;
+}
+.cancelar_edit{
+  width: 120px;
+  height: 30px;
+  display: inline-block;
+  padding: 4px;
+  border: 2px solid black;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 15px;
+  
+}
+
+/* aqui termina */
+
+
+.dropbtn {
+  border: none;
+  display: flex;
+  font-size: 27px;
+  cursor: pointer;
+  width: 10px;
+  height: 30px;
+  background-color: white;
+}
+
+.dropdown {
+  position: relative; 
+  display: inline-block;
+  width: 20px;
+  height: 35px;
+  top: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: black;
+  text-align: center;
+  margin-left: -145px;
+  margin-top: 10px;
+  width: 160px;
+  border-radius: 5px;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+}
+.menu_action {
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  padding: 5px;
+  
+}
+.project-info {
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown a:hover {
+  background-color: #555;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+

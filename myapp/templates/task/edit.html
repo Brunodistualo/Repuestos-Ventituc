@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>Editar Repuesto</h1>
+<ul class="volver">
+    <li><a href="/task">🡐Volver</a></li>
+
+</ul>
+<div class="create_task">
+
+
+    <form method="post" enctype="multipart/form-data" action="{% url 'repuestos_editar' id=repuesto.id %}">
+        {% csrf_token %}
+        <p>
+            <label for="id_title">Nombre del repuesto:</label>
+            <input type="text" name="title" id="id_title" value="{{ repuesto.title }}">
+        </p>
+        <p>
+            <label for="id_description">Descripción:</label>
+            <textarea name="description" id="id_description" cols="40" rows="10">{{ repuesto.description }}</textarea>
+        </p>
+        <p>
+            <label for="id_imagenes">Imagen actual:</label>
+        <div class="imagen_actual">
+            <a href="{{ repuesto.imagenes.url }}">{{ repuesto.imagenes.name }}</a><br>
+        </div>
+        <input class="nueva" type="file" name="imagenes" id="id_imagenes">
+
+        </p>
+        <p>
+            <label for="id_modelo_vt">Modelo perteneciente:</label>
+            <input type="text" name="modelo_vt" id="id_modelo_vt" value="{{ repuesto.modelo_vt }}">
+        </p>
+        <p>
+            <button type="submit" class="edit_update">Guardar Cambios</button>
+            <a class="cancelar_edit" href="/task">Cancelar</a>
+        </p>
+    </form>
+</div>
+{% endblock %}

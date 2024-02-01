@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>Cargar nuevo repuesto</h1>
+
+<div class="create_task">
+   <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p>
+         <label for="id_title">Nombre del repuesto:</label>
+         <input type="text" name="title" maxlength="30" required id="id_title">
+      </p>
+      <p>
+         <label for="id_description">Descripción:</label>
+         <textarea name="description" cols="40" rows="10" required
+            id="id_description">Descripción predeterminada</textarea>
+      </p>
+
+      <p>
+         <label for="id_imagenes">Imagen:</label>
+         <input class="imagenes_input" type="file" name="imagenes" accept="image/*" required id="id_imagenes">
+      </p>
+      <p>
+         <label for="id_modelo_vt">Modelo perteneciente:</label>
+         <input type="text" name="modelo_vt" maxlength="30" required id="id_modelo_vt"
+            value="Ingresar modelos compatibles">
+      </p>
+
+      <button type="submit" class="subir_archivo">Guardar</button>
+
+   </form>
+</div>
+
+
+{% endblock %}

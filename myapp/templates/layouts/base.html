@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Project</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'scripts/scripts.js' %}"></script>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="/projects">Ventiladores</a></li>
+            <li><a href="/task">Repuestos</a></li>
+            <li><a href="/search_ventilador">Despieces</a></li>
+            <li><a href="/create_project">Cargar ventilador</a></li>
+            <li><a href="/create_task">Cargar repuesto</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>

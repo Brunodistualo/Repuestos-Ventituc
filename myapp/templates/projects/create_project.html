@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Cargar nuevo modelo de ventilador</h1>
+
+<div class="create_task">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>
+      <label for="id_name">Nombre del ventilador:</label>
+      <input type="text" name="name" required id="id_name">
+    </p>
+    <p>
+      <label for="id_description">Descripción:</label>
+      <textarea name="description" cols="30" rows="10" required
+        id="id_description">Descripción predeterminada</textarea>
+    </p>
+    <p>
+      <label for="id_imagenes">Imagen:</label>
+      <input class="imagenes_input" type="file" name="imagenes" accept="image/*" required id="id_imagenes">
+    </p>
+    <button type="submit" class="subir_archivo">Guardar</button>
+  </form>
+  </form>
+</div>
+
+</div>
+{% endblock %}

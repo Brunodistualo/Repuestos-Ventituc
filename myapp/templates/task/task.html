@@ -1,0 +1,60 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Repuestos de ventiladores</h1>
+<div class="buscador">
+    <form method="get">
+        <input class="project_input" type="text" name="buscar" placeholder="Buscar por nombre o descripción"
+            value="{{ request.GET.buscar }}">
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+
+<div class="contenedor">
+    {% if tasks %}
+    {% for task in tasks %}
+    <div class="elemento">
+        <p><img src="{{ task.imagenes.url }}" alt="{{ task.title }}" class="zoom"></p>
+        <div class="project-info">
+            <p class="name_project">{{ task.title }}</p>
+            <div class="dropdown">
+                <button onclick="toggleDropdown(this)" class="dropbtn">⋮</button>
+                <div class="dropdown-content">
+                    <a class="menu_action" href="{% url 'repuestos_editar' id=task.id %}">Editar Repuesto</a>
+                    <a class="menu_action" onclick="confirmarEliminacionRepuesto('{{ task.title }}', '{{ task.id }}')">Eliminar Repuesto</a> 
+                </div>
+            </div>
+        </div>
+        <p class="descripcion_task">Descripción: {{ task.description }} <br></p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No hay repuestos disponibles.</p>
+    {% endif %}
+</div>
+<script>
+    function toggleDropdown(button) {
+        var dropdown = button.nextElementSibling;
+        dropdown.classList.toggle("show");
+    }
+
+    function confirmarEliminacionRepuesto(nombreRepuesto, idRepuesto) {
+        var confirmacion = confirm("¿Estás seguro de que deseas eliminar el repuesto '" + nombreRepuesto + "'?");
+
+        if (confirmacion) {
+            // Si el usuario confirma, redirige a la URL de eliminación
+            window.location.href = "/repuestos/eliminar/" + idRepuesto + "/";
+        }
+    }
+
+    document.addEventListener('click', function (event) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show') && !openDropdown.parentNode.contains(event.target)) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    });
+</script>
+{% endblock %}

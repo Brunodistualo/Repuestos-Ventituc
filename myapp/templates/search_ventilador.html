@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Despiece de ventilador</h1>
+<div class="buscador">
+    <form method="GET">
+        <input class="project_input" type="text" name="buscar" placeholder="Buscar por nombre o descripción"
+            value="{{ request.GET.buscar }}">
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+<div class="contenedor">
+    {% if resultados_vt %}
+    {% for modelo in resultados_vt %}
+    <div class="elemento">
+        <p class="imagen"><img src="{{ modelo.imagen.url }}" alt="{{ modelo.nombre }}" class="zoom"></p>
+        <p class="codigo">Codigo: {{ modelo.nombre }} <br></p>
+        <p class="descripcion">Descripción: {{ modelo.descripcion }} <br></p>
+
+
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No hay coincidencias de busqueda</p>
+    {% endif %}
+</div>
+{% endblock %}s
